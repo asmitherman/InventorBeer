@@ -1,17 +1,40 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <ion-navbar>
+
+    <ion-title>
+      InventorBeer
+    </ion-title>
+    <ion-buttons end>
+      <button (click)=add() ion-button icon-only end>
+        <ion-icon name="ios-add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding >
+  <h2 text-center id="user" ></h2>
+
+  <ion-card>
+  <div>
+  <!-- <div (click)=show(this.id)> -->
+  <ion-card-header>  Fridge 1 </ion-card-header>
+  <ion-card-content> This is a description of this Fridge </ion-card-content>
+  </div>
+  <ion-list id="1">
+    <button ion-item>
+      <ion-icon name="ios-add" item-start></ion-icon>
+      Add </button>
+    <button ion-item>
+      <ion-icon name="ios-remove" item-start></ion-icon>
+      Remove </button>
+    <button ion-item>
+      <ion-icon name="ios-checkmark" item-start></ion-icon>
+      Re-count </button>
+    <button ion-item>
+      <ion-icon name="ios-archive-outline" item-start></ion-icon>
+      Transaction History </button>
+  </ion-list>
+</ion-card>
 </ion-content>
