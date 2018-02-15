@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar padding-left padding-right>
 
     <ion-title>
       InventorBeer
@@ -16,11 +16,11 @@
 <ion-content padding >
   <h2 text-center id="user" ></h2>
 
-  <ion-card>
+  <ion-card *ngFor='let sub of subs'>
   <div>
   <!-- <div (click)=show(this.id)> -->
-  <ion-card-header>  Fridge 1 </ion-card-header>
-  <ion-card-content> This is a description of this Fridge </ion-card-content>
+  <ion-card-header>  {{sub.name}} </ion-card-header>
+  <ion-card-content> {{sub.description}}</ion-card-content>
   </div>
   <ion-list id="1">
     <button ion-item>

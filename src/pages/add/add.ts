@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { Observable } from 'rxjs/Observable';
+
 
 // import { AngularFireModule } from 'angularfire2';
 
@@ -19,7 +21,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class AddPage {
 users: any;
-location: any;
+sublocations: Observable<any[]>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public af: AngularFireDatabase,public afAuth: AngularFireAuth) {
@@ -28,7 +30,8 @@ location: any;
       this.users = auth;
     });
 
-    
+    this.sublocations = af.list('sublocation').valueChanges();
+
   }
 
   ionViewDidLoad() {

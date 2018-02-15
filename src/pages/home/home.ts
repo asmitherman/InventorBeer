@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { TabsPage } from '../tabs/tabs';
+// import { TabsPage } from '../tabs/tabs';
 import { AddPage } from '../add/add';
-import { LoginPage } from '../login/login';
+// import { LoginPage } from '../login/login';
+import { Sublocation } from '../../models/sublocation';
 
 
 @Component({
@@ -12,12 +13,15 @@ import { LoginPage } from '../login/login';
 })
 export class HomePage {
   users: any;
+  sublocation = {} as Sublocation;
+  subs: Array<Sublocation>;
 
   constructor(public navCtrl: NavController, public afAuth: AngularFireAuth) {
     this.afAuth.authState.subscribe((auth) => {
         this.users = auth;
     });
-
+    // this.sublocation.name = 'Test Fridge';
+    // this.sublocation.description = 'Test Kitchen';
   }
 
   show(id) {
@@ -37,6 +41,8 @@ export class HomePage {
 
 
   ionViewDidLoad() {
+    // let fridge = ({name: 'test', description: 'test again'});
+    // this.subs.push(fridge);
     document.getElementById('user').innerHTML = this.users.displayName;
   }
 
